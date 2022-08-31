@@ -5,7 +5,7 @@ function Host({ netaddress }) {
 Host.getInitialProps = async (ctx) => {
     const res = await fetch('http://localhost:4280/host')
     const json = await res.json()
-    return { netaddress: json.externalsettings.netaddress }
+    return { netaddress: json }
 }
 
 export default Host
