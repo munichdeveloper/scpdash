@@ -11,7 +11,7 @@ Host.getInitialProps = async (ctx) => {
     })
     console.log(res)
     const json = await res.json()
-    return { netaddress: json }
+    return { netaddress: json.externalsettings.netaddress }
 }
 
 export default Host
