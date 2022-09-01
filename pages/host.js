@@ -1,5 +1,12 @@
-function Host({ netaddress }) {
-    return <div>Net Address: {netaddress}</div>
+function Host({ netaddress, acceptingcontracts, connectabilitystatus, workingstatus, totalstorage, remainingstorage, }) {
+    return <>
+        <div>Net Address: {netaddress}</div>
+        <div>Neue Verträge eröffnen: {acceptingcontracts}</div>
+        <div>Verbindungsstatus: {connectabilitystatus}</div>
+        <div>Status: {workingstatus}</div>
+        <div>Gesamtspeicher: {totalstorage}</div>
+        <div>Freier Speicher: {remainingstorage}</div>
+    </>
 }
 
 Host.getInitialProps = async (ctx) => {
@@ -11,7 +18,16 @@ Host.getInitialProps = async (ctx) => {
     })
     console.log(res)
     const json = await res.json()
-    return { netaddress: json.externalsettings.netaddress }
+    const extSettings = json.externalsettings
+    return {
+        netaddress: extSettings.netaddress,
+        acceptingcontracts: extSettings.acceptingcontracts,
+        netaddress: extSettings.netaddress,
+        connectabilitystatus,
+        workingstatus,
+        totalstorage: extSettings.totalstorage,
+        remainingstorage: extSettings.remainingstorage
+    }
 }
 
 export default Host
