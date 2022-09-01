@@ -23,8 +23,8 @@ Host.getInitialProps = async (ctx) => {
         netaddress: extSettings.netaddress,
         acceptingcontracts: extSettings.acceptingcontracts,
         netaddress: extSettings.netaddress,
-        connectabilitystatus: connectabilitystatus,
-        workingstatus: workingstatus,
+        connectabilitystatus: json.connectabilitystatus,
+        workingstatus: json.workingstatus,
         totalstorage: extSettings.totalstorage,
         remainingstorage: extSettings.remainingstorage
     }
